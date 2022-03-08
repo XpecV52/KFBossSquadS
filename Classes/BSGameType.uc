@@ -37,7 +37,7 @@ var config array<string> ShopBugMaps;
 
 function PreBeginPlay()
 {
-	// local CashPickup CP;
+	local CashPickup CP;
 	local KFAmmoPickup KFAP;
 	local KFRandomItemSpawn KFRIS;
 	
@@ -48,9 +48,9 @@ function PreBeginPlay()
     KFGameReplicationInfo(GameReplicationInfo).GameDiff = GameDifficulty;
     KFGameReplicationInfo(GameReplicationInfo).bEnemyHealthBars = bEnemyHealthBars;
 	
-	// foreach AllActors(class'KFMod.CashPickup', CP)
-	// 	if(CP != None)
-	// 		CP.Destroy();
+	foreach AllActors(class'KFMod.CashPickup', CP)
+		if(CP != None)
+			CP.Destroy();
 	
 	foreach AllActors(class'KFMod.KFAmmoPickup', KFAP)
 		if(KFAP != None)
@@ -60,8 +60,7 @@ function PreBeginPlay()
 		if(KFRIS != None)
 			KFRIS.Destroy();
 	
-	// if(Right(Level.Title, 2) == "BS")
-	// 	bIsBSMap = true;
+	
 }
 
 // Force slomo for a longer period of time when the boss dies
